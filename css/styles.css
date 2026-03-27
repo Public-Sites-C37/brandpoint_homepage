@@ -1,0 +1,880 @@
+/* ============================================
+   Brandpoint Landing Page — Global Styles
+   All classes prefixed with bp-landing-
+   ============================================ */
+
+/* --- CSS Custom Properties (Brand Tokens) --- */
+:root {
+  --bp-navy: #1B2541;
+  --bp-orange: #E8632B;
+  --bp-teal: #2A8F7D;
+  --bp-gray-bg: #F5F5F5;
+  --bp-white: #FFFFFF;
+  --bp-text-dark: #333333;
+  --bp-text-light: #666666;
+  --bp-font: 'Inter', sans-serif;
+  --bp-max-width: 1200px;
+  --bp-section-padding: 80px 24px;
+  --bp-section-padding-mobile: 48px 16px;
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--bp-font);
+  color: var(--bp-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Container --- */
+.bp-landing-container {
+  max-width: var(--bp-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- Section Base --- */
+.bp-landing-section {
+  padding: var(--bp-section-padding);
+}
+
+/* --- Typography --- */
+.bp-landing-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bp-landing-h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-top: 12px;
+}
+
+.bp-landing-h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--bp-navy);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.bp-landing-h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--bp-navy);
+  margin-bottom: 8px;
+}
+
+.bp-landing-subtitle {
+  font-size: 1.125rem;
+  color: var(--bp-text-light);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+/* --- Buttons --- */
+.bp-landing-btn {
+  display: inline-block;
+  font-family: var(--bp-font);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.bp-landing-btn:hover {
+  transform: translateY(-1px);
+}
+
+.bp-landing-btn-primary {
+  background-color: var(--bp-orange);
+  color: var(--bp-white);
+}
+
+.bp-landing-btn-primary:hover {
+  background-color: #d4571f;
+}
+
+.bp-landing-btn-outline {
+  background-color: transparent;
+  color: var(--bp-orange);
+  border: 2px solid var(--bp-orange);
+}
+
+.bp-landing-btn-outline:hover {
+  background-color: var(--bp-orange);
+  color: var(--bp-white);
+}
+
+.bp-landing-btn-large {
+  font-size: 1.125rem;
+  padding: 18px 48px;
+  border-radius: 8px;
+}
+
+.bp-landing-btn-pill {
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 0.9375rem;
+}
+
+/* --- Badge --- */
+.bp-landing-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: var(--bp-orange);
+  color: var(--bp-white);
+  margin-bottom: 8px;
+}
+
+/* --- Card Base --- */
+.bp-landing-card {
+  background: var(--bp-white);
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 32px 24px;
+  transition: box-shadow 0.2s ease;
+}
+
+.bp-landing-card:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   SEC-01: Hero
+   ============================================ */
+.bp-landing-hero {
+  background-color: var(--bp-navy);
+  color: var(--bp-white);
+  padding: 96px 24px 80px;
+}
+
+.bp-landing-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.bp-landing-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.bp-landing-hero-content .bp-landing-btn {
+  margin-top: 32px;
+}
+
+.bp-landing-hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bp-landing-hero-image img {
+  max-width: 520px;
+  width: 100%;
+}
+
+/* ============================================
+   SEC-02: Social Proof Bar
+   ============================================ */
+.bp-landing-social-proof {
+  background-color: var(--bp-white);
+  padding: 48px 24px;
+  overflow: hidden;
+}
+
+.bp-landing-social-proof .bp-landing-h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bp-text-light);
+  margin-bottom: 32px;
+}
+
+.bp-landing-slider-track {
+  overflow: hidden;
+  position: relative;
+}
+
+.bp-landing-slider-inner {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  animation: bp-landing-scroll 20s linear infinite;
+  width: max-content;
+}
+
+.bp-landing-slider-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.bp-landing-slider-logo:hover {
+  opacity: 1;
+}
+
+@keyframes bp-landing-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================
+   SEC-03: Distribution Packages
+   ============================================ */
+.bp-landing-packages {
+  background-color: var(--bp-gray-bg);
+}
+
+.bp-landing-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.bp-landing-package-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 20px;
+}
+
+.bp-landing-package-featured {
+  border-color: var(--bp-orange);
+  border-width: 2px;
+  box-shadow: 0 4px 24px rgba(232, 99, 43, 0.12);
+}
+
+.bp-landing-package-price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--bp-navy);
+  margin: 8px 0 20px;
+}
+
+.bp-landing-price-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--bp-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bp-landing-package-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid #E5E7EB;
+  padding-top: 20px;
+}
+
+.bp-landing-package-features li {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--bp-text-dark);
+  padding-left: 20px;
+  position: relative;
+}
+
+.bp-landing-package-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--bp-teal);
+  border-radius: 50%;
+}
+
+.bp-landing-feature-new {
+  font-weight: 600;
+}
+
+.bp-landing-feature-new::before {
+  background-color: var(--bp-orange) !important;
+}
+
+/* ============================================
+   SEC-04: Thin CTA Band
+   ============================================ */
+.bp-landing-cta-band {
+  background-color: var(--bp-navy);
+  color: var(--bp-white);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.bp-landing-cta-band .bp-landing-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.bp-landing-cta-band-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ============================================
+   SEC-05: Meet Brandpoint Optimize
+   ============================================ */
+.bp-landing-optimize {
+  background-color: var(--bp-white);
+}
+
+.bp-landing-optimize-logo {
+  color: var(--bp-navy);
+}
+
+.bp-landing-optimize-logo-accent {
+  color: var(--bp-orange);
+  font-style: italic;
+  font-weight: 800;
+}
+
+.bp-landing-optimize-logo sup {
+  font-size: 0.5em;
+  font-style: normal;
+  vertical-align: super;
+}
+
+/* 4 Feature Cards */
+.bp-landing-optimize-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.bp-landing-optimize-card {
+  text-align: center;
+  padding: 36px 24px;
+}
+
+.bp-landing-optimize-card .bp-landing-h3 {
+  margin-bottom: 8px;
+}
+
+.bp-landing-optimize-card p {
+  color: var(--bp-text-light);
+  font-size: 0.9375rem;
+}
+
+.bp-landing-optimize-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: var(--bp-navy);
+  color: var(--bp-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* AI Visibility Score Section */
+.bp-landing-visibility-section {
+  margin-top: 32px;
+  padding-top: 64px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.bp-landing-visibility-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.bp-landing-gauge-card {
+  background: var(--bp-white);
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.bp-landing-gauge-header {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--bp-navy);
+  margin-bottom: 4px;
+}
+
+.bp-landing-gauge-subheader {
+  font-size: 0.75rem;
+  color: var(--bp-text-light);
+  margin-bottom: 24px;
+}
+
+.bp-landing-gauge-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.bp-landing-gauge-metrics-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bp-landing-gauge-metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.bp-landing-gauge-metric-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  color: var(--bp-text-light);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.bp-landing-gauge-metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bp-text-dark);
+}
+
+.bp-landing-gauge-metric-highlight {
+  color: var(--bp-teal);
+}
+
+.bp-landing-gauge-metric-arrow {
+  font-size: 1.25rem;
+  color: var(--bp-text-light);
+}
+
+.bp-landing-gauge-donut {
+  flex-shrink: 0;
+}
+
+.bp-landing-gauge-svg {
+  width: 160px;
+  height: 160px;
+}
+
+.bp-landing-gauge-sub-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  border-top: 1px solid #E5E7EB;
+  padding-top: 16px;
+}
+
+.bp-landing-gauge-sub-metric {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.bp-landing-gauge-sub-label {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  color: var(--bp-text-light);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.bp-landing-gauge-sub-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--bp-text-dark);
+}
+
+.bp-landing-gauge-positive {
+  color: var(--bp-teal);
+}
+
+.bp-landing-gauge-negative {
+  color: var(--bp-orange);
+}
+
+/* Visibility Copy */
+.bp-landing-visibility-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.bp-landing-visibility-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--bp-text-dark);
+}
+
+/* Client Quote */
+.bp-landing-quote {
+  margin-top: 64px;
+  padding: 48px;
+  background-color: var(--bp-gray-bg);
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.bp-landing-quote::before {
+  content: '\201C';
+  font-size: 6rem;
+  color: var(--bp-orange);
+  opacity: 0.2;
+  position: absolute;
+  top: -10px;
+  left: 32px;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+.bp-landing-quote p {
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--bp-text-dark);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bp-landing-quote cite {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--bp-text-light);
+}
+
+/* ============================================
+   SEC-06: Campaign Customizations
+   ============================================ */
+.bp-landing-customizations {
+  background-color: var(--bp-gray-bg);
+}
+
+.bp-landing-custom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.bp-landing-custom-row:last-child {
+  border-bottom: none;
+}
+
+.bp-landing-custom-row-reverse {
+  direction: rtl;
+}
+
+.bp-landing-custom-row-reverse > * {
+  direction: ltr;
+}
+
+.bp-landing-custom-text p {
+  color: var(--bp-text-light);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  margin-top: 8px;
+}
+
+.bp-landing-custom-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.bp-landing-custom-logos img {
+  height: 48px;
+  width: auto;
+}
+
+/* Specialty Formats Graphic */
+.bp-landing-custom-formats-graphic {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.bp-landing-format-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--bp-navy);
+}
+
+/* Native Ad Example */
+.bp-landing-native-ad-placeholder {
+  background: var(--bp-white);
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 360px;
+}
+
+.bp-landing-native-ad-label {
+  background-color: var(--bp-orange);
+  color: var(--bp-white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+}
+
+.bp-landing-native-ad-body {
+  padding: 20px;
+}
+
+.bp-landing-native-ad-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--bp-navy);
+  line-height: 1.5;
+}
+
+/* ============================================
+   SEC-07: Case Study
+   ============================================ */
+.bp-landing-case-study {
+  background-color: var(--bp-white);
+}
+
+.bp-landing-case-study-inner {
+  text-align: center;
+}
+
+.bp-landing-case-study-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.bp-landing-case-study-text {
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  color: var(--bp-text-dark);
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   SEC-08: Final CTA
+   ============================================ */
+.bp-landing-final-cta {
+  background: linear-gradient(135deg, var(--bp-navy) 0%, #0f1729 100%);
+  color: var(--bp-white);
+  text-align: center;
+  padding: 96px 24px;
+}
+
+.bp-landing-final-cta .bp-landing-h1 {
+  margin-top: 0;
+}
+
+.bp-landing-final-cta-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .bp-landing-h1 {
+    font-size: 2.25rem;
+  }
+  .bp-landing-h2 {
+    font-size: 1.75rem;
+  }
+  .bp-landing-packages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bp-landing-gauge-body {
+    flex-direction: column;
+  }
+  .bp-landing-gauge-sub-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+  .bp-landing-section {
+    padding: var(--bp-section-padding-mobile);
+  }
+  .bp-landing-h1 {
+    font-size: 1.875rem;
+  }
+  .bp-landing-h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Hero */
+  .bp-landing-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .bp-landing-hero-content {
+    align-items: center;
+  }
+  .bp-landing-hero-image {
+    order: -1;
+  }
+  .bp-landing-hero-image img {
+    max-width: 360px;
+  }
+
+  /* Packages */
+  .bp-landing-packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Optimize Cards */
+  .bp-landing-optimize-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* AI Visibility */
+  .bp-landing-visibility-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .bp-landing-visibility-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Customizations */
+  .bp-landing-custom-row,
+  .bp-landing-custom-row-reverse {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    direction: ltr;
+  }
+  .bp-landing-custom-text {
+    text-align: center;
+  }
+  .bp-landing-custom-media {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* CTA Band */
+  .bp-landing-cta-band .bp-landing-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .bp-landing-h1 {
+    font-size: 1.625rem;
+  }
+
+  .bp-landing-packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bp-landing-optimize-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .bp-landing-gauge-sub-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bp-landing-btn-large {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bp-landing-quote {
+    padding: 32px 20px;
+  }
+
+  .bp-landing-quote p {
+    font-size: 1.0625rem;
+  }
+
+  .bp-landing-final-cta {
+    padding: 64px 16px;
+  }
+
+  .bp-landing-custom-formats-graphic {
+    gap: 16px;
+  }
+}
