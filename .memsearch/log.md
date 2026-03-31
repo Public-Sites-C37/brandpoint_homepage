@@ -1,0 +1,50 @@
+# home_page — MemSearch Log
+
+## Project
+Brandpoint Product Landing Page — static HTML/CSS/JS site for `brandpoint.com/distribution-solutions`
+
+## Key Facts
+- **Client:** MaDonna Sheehy, Director of Marketing, Brandpoint
+- **Stack:** Vanilla HTML/CSS/JS (no frameworks), WordPress-pasteable
+- **Font:** Inter (Google Fonts)
+- **Colors:** Navy #1B2541, Orange #E8632B, Teal #2A8F7D
+- **CSS Namespace:** All classes prefixed `bp-landing-`
+- **Live Preview:** https://public-sites-c37.github.io/brandpoint_homepage/
+
+## Remotes
+- `origin` fetch: `Brandpoint-C37/home_page` (GH Enterprise, jake_c37 SSH via org-257209038)
+- `origin` push: mirror to both `Brandpoint-C37/home_page` AND `Public-Sites-C37/brandpoint_homepage`
+- `public`: `Public-Sites-C37/brandpoint_homepage` (DrTrippel SSH)
+- CI: GitHub Actions deploys to GitHub Pages on push to main
+
+## Architecture
+- `index.html` — 8 sections (Hero, Social Proof, Packages, CTA Band, Optimize [3 sub-sections], Customizations, Case Study, Final CTA)
+- `css/styles.css` — 1092 lines, CSS custom properties for brand tokens, responsive at 1440/1024/768/480
+- `js/main.js` — IntersectionObserver scroll-reveal + gauge donut animation
+- `assets/images/distribution-map.svg` — Custom US map with 5 publisher markers
+- `assets/logos/` — 6 placeholder brand SVGs + 3 specialty pub logos
+
+## Spec Docs
+- `SPEC.md` — 13 acceptance criteria, 8 open items
+- `PLAN.md` — 5-phase, 22-step implementation plan
+- `TESTS.md` — 16 manual test suites, 70+ checks
+
+## Open Items (Unresolved)
+- OI-01: Prices on live page? (included with `.bp-price` class for easy removal)
+- OI-02: Real brand logos for social proof slider (placeholders now)
+- OI-05: SFGate screenshot approved? (styled placeholder)
+- OI-07: Brandpoint Optimize logo asset (CSS/text recreation currently)
+
+## Session History
+
+### 2026-03-27 — Initial Build
+- Analyzed 5 source materials (brief PDF, Teams transcript, email, Distribution Guide, Optimize One-Pager)
+- Created SPEC.md, PLAN.md, TESTS.md — reviewed by 4 parallel agents
+- Built all 8 sections with scroll-reveal animations, AI Visibility gauge, logo slider
+- Deployed via GitHub Pages; set up mirror push to public repo
+- Live at https://public-sites-c37.github.io/brandpoint_homepage/
+
+### 2026-03-31 — Repo Mastery Session
+- Pulled latest (already up to date)
+- Full codebase read: index.html, styles.css, main.js, SVG map, deploy workflow, all spec docs
+- Initialized `.memsearch/log.md`
