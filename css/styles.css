@@ -523,6 +523,38 @@ ul {
   position: relative;
 }
 
+.bp-landing-package-card .bp-landing-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  margin-bottom: 0;
+  font-size: 0.6rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.bp-landing-package-new {
+  border-color: var(--bp-orange);
+  border-width: 2px;
+  box-shadow: 0 8px 32px rgba(232, 99, 43, 0.08), 0 2px 8px rgba(232, 99, 43, 0.04);
+}
+
+.bp-landing-package-new::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bp-orange), #ff8c5a);
+  border-radius: 0 0 3px 3px;
+}
+
+.bp-landing-package-new:hover {
+  box-shadow: 0 12px 40px rgba(232, 99, 43, 0.12), 0 4px 12px rgba(232, 99, 43, 0.06);
+}
+
 .bp-landing-package-features {
   display: flex;
   flex-direction: column;
