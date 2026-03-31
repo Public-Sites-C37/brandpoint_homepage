@@ -116,9 +116,9 @@ ul {
 }
 
 .bp-landing-h1 {
-  font-size: 3.125rem;
+  font-size: 2.625rem;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   margin-top: 0;
 }
@@ -407,7 +407,14 @@ ul {
 }
 
 .bp-landing-hero-content .bp-landing-h1 {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.bp-landing-hero-descriptor {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 520px;
 }
 
 .bp-landing-hero-content .bp-landing-btn {
@@ -416,6 +423,7 @@ ul {
 
 .bp-landing-hero-image {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -424,6 +432,17 @@ ul {
   max-width: 520px;
   width: 100%;
   filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.2));
+}
+
+.bp-landing-hero-map-caption {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  margin-top: 16px;
+  letter-spacing: 0.3px;
+  max-width: 360px;
+  line-height: 1.5;
 }
 
 /* ============================================
@@ -485,16 +504,14 @@ ul {
 .bp-landing-slider-logo {
   height: 36px;
   width: auto;
-  opacity: 0.45;
+  opacity: 0.7;
   transition: opacity var(--bp-transition);
   flex-shrink: 0;
-  filter: grayscale(1);
   object-fit: contain;
 }
 
 .bp-landing-slider-logo:hover {
-  opacity: 0.8;
-  filter: grayscale(0);
+  opacity: 1;
 }
 
 @keyframes bp-landing-scroll {
@@ -1215,7 +1232,7 @@ ul {
 /* Tablet Landscape */
 @media (max-width: 1024px) {
   .bp-landing-h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   .bp-landing-h2 {
     font-size: 1.875rem;
