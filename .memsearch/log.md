@@ -55,3 +55,33 @@ Brandpoint Product Landing Page — static HTML/CSS/JS site for `brandpoint.com/
 - Committed `7a032dd`, pushed to both remotes, GitHub Pages deploy succeeded
 - Live: https://public-sites-c37.github.io/brandpoint_homepage/
 - Open: MaDonna to provide value prop copy + new quote copy
+
+### 2026-04-01 — MaDonna Final Round + WordPress API Connection
+
+#### MaDonna Final Round Changes
+- Replaced lorem ipsum quotes with final copy: Agency Leader (ROI quote) + Digital Strategy Leader
+- Swapped quote positions per MaDonna's request (Agency Leader first, Digital Strategy Leader second)
+- Fixed Signature Plus and Optimize audience from 90M → 120M
+- Replaced Optimize logo image with styled text (`Meet Brandpoint <span class="bp-landing-optimize-text">Optimize</span>`) to fix font mismatch
+- Removed Facebook, X, YouTube from footer — LinkedIn only
+- Fixed scroll reveal progressive enhancement: content visible by default, JS adds `.bp-reveal-ready` to enable animations
+
+#### WordPress REST API Connection Established
+- **REST API accessible** at `https://www.brandpoint.com/wp-json/wp/v2/`
+- **No page builder** on homepage — raw HTML in `post_content` (95K chars), can push directly via API
+- **Homepage page ID:** `39965` (slug: `brandpoint-jk-draft-6-24`, title: "Brandpoint Home 2025")
+- **Yoast SEO active** with REST API fields exposed
+- **Authentication:** Application Password for `jtrippel` (user ID 78) — stored in `.wp-credentials.env` (gitignored)
+- **Wordfence note:** Had to uncheck "Disable WordPress application passwords" in Wordfence All Options to enable App Passwords
+- **Credentials file:** `.wp-credentials.env` with `WP_SITE`, `WP_USER`, `WP_APP_PASSWORD` env vars
+- **17 published pages** mapped — see `WordPress config/SITE-AUDIT.md`
+
+#### WordPress Config Documentation Created
+- `WordPress config/RESEARCH.md` — Full evaluation of 4 integration approaches (REST API, MCP Server, WP-CLI, WPGraphQL)
+- `WordPress config/SETUP-GUIDE.md` — Step-by-step setup, curl commands, troubleshooting
+- `WordPress config/SITE-AUDIT.md` — Live site audit: page IDs, Yoast status, no page builder, deployment strategy
+
+#### Open Decision: Nav/Footer Strategy
+- **Option A:** Use WordPress theme nav/footer (strip ours, push body sections only)
+- **Option B:** Full custom page with blank template (push everything including our nav/footer)
+- Needs MaDonna input
