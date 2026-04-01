@@ -86,23 +86,24 @@ ul {
   position: relative;
 }
 
-/* --- Scroll Reveal Animation --- */
-.bp-landing-reveal {
+/* --- Scroll Reveal Animation (progressive enhancement) --- */
+/* Content visible by default; JS adds .bp-reveal-ready to enable animations */
+.bp-reveal-ready .bp-landing-reveal {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.bp-landing-reveal.bp-landing-visible {
+.bp-reveal-ready .bp-landing-reveal.bp-landing-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.bp-landing-reveal-delay-1 { transition-delay: 0.1s; }
-.bp-landing-reveal-delay-2 { transition-delay: 0.2s; }
-.bp-landing-reveal-delay-3 { transition-delay: 0.3s; }
-.bp-landing-reveal-delay-4 { transition-delay: 0.4s; }
+.bp-reveal-ready .bp-landing-reveal-delay-1 { transition-delay: 0.1s; }
+.bp-reveal-ready .bp-landing-reveal-delay-2 { transition-delay: 0.2s; }
+.bp-reveal-ready .bp-landing-reveal-delay-3 { transition-delay: 0.3s; }
+.bp-reveal-ready .bp-landing-reveal-delay-4 { transition-delay: 0.4s; }
 
 /* --- Typography --- */
 .bp-landing-eyebrow {
@@ -634,13 +635,9 @@ ul {
   margin-bottom: 24px;
 }
 
-/* Optimize Logo Image in H2 */
-.bp-landing-optimize-logo-img {
-  display: inline-block;
-  height: 44px;
-  width: auto;
-  vertical-align: middle;
-  margin-left: 8px;
+/* Optimize "Optimize" word in H2 */
+.bp-landing-optimize-text {
+  color: var(--bp-orange);
 }
 
 .bp-landing-optimize-header .bp-landing-h2 {
@@ -1243,9 +1240,6 @@ ul {
   .bp-landing-hero-grid {
     gap: 40px;
   }
-  .bp-landing-optimize-logo-img {
-    height: 36px;
-  }
   .bp-landing-optimize-header .bp-landing-h2 {
     font-size: 2.25rem;
   }
@@ -1331,13 +1325,9 @@ ul {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
-  .bp-landing-optimize-logo-img {
-    height: 28px;
-  }
   .bp-landing-optimize-header .bp-landing-h2 {
     font-size: 1.75rem;
   }
-
   /* AI Visibility */
   .bp-landing-visibility-grid {
     grid-template-columns: 1fr;

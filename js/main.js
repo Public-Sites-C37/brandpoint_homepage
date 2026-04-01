@@ -2,6 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+  // --- Enable scroll reveal animations (progressive enhancement) ---
+  // Content is visible by default; this class enables the hide → reveal cycle
+  document.documentElement.classList.add('bp-reveal-ready');
+
   // --- Scroll Reveal — IntersectionObserver for fade-in animations ---
   var revealElements = document.querySelectorAll('.bp-landing-reveal');
 
