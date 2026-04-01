@@ -434,16 +434,6 @@ ul {
   filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.2));
 }
 
-.bp-landing-hero-map-caption {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
-  text-align: center;
-  margin-top: 16px;
-  letter-spacing: 0.3px;
-  max-width: 360px;
-  line-height: 1.5;
-}
 
 /* ============================================
    Value Proposition Section (NEW)
@@ -651,6 +641,10 @@ ul {
   width: auto;
   vertical-align: middle;
   margin-left: 8px;
+}
+
+.bp-landing-optimize-header .bp-landing-h2 {
+  font-size: 2.75rem;
 }
 
 /* 4 Feature Cards */
@@ -1252,6 +1246,9 @@ ul {
   .bp-landing-optimize-logo-img {
     height: 36px;
   }
+  .bp-landing-optimize-header .bp-landing-h2 {
+    font-size: 2.25rem;
+  }
 }
 
 /* Tablet Portrait */
@@ -1336,6 +1333,9 @@ ul {
   }
   .bp-landing-optimize-logo-img {
     height: 28px;
+  }
+  .bp-landing-optimize-header .bp-landing-h2 {
+    font-size: 1.75rem;
   }
 
   /* AI Visibility */
