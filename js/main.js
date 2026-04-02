@@ -100,4 +100,60 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // --- GA4 Event Tracking (via gtag) ---
+  function trackEvent(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: eventName }, params));
+  }
+
+  // CTA Click Tracking
+  document.querySelectorAll('.bp-landing-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var section = btn.closest('section') || btn.closest('header');
+      var sectionId = section ? section.id || 'unknown' : 'nav';
+      trackEvent('cta_click', {
+        cta_text: btn.textContent.trim(),
+        cta_url: btn.href || '',
+        cta_section: sectionId
+      });
+    });
+  });
+
+  // Section Scroll Tracking
+  var trackedSections = ['packages', 'optimize', 'case-study', 'final-cta'];
+  var sectionsSeen = {};
+
+  if ('IntersectionObserver' in window) {
+    var sectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !sectionsSeen[entry.target.id]) {
+          sectionsSeen[entry.target.id] = true;
+          trackEvent('section_view', {
+            section_id: entry.target.id,
+            section_name: entry.target.querySelector('h2') ?
+              entry.target.querySelector('h2').textContent.trim().substring(0, 60) : entry.target.id
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    trackedSections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+  }
+
+  // Outbound Link Tracking (nav links to brandpoint.com subpages)
+  document.querySelectorAll('.bp-landing-nav-links a, .bp-landing-footer-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      trackEvent('nav_click', {
+        link_text: link.textContent.trim(),
+        link_url: link.href || ''
+      });
+    });
+  });
+
 });

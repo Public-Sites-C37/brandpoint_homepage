@@ -84,4 +84,13 @@ Brandpoint Product Landing Page — static HTML/CSS/JS site for `brandpoint.com/
 #### Open Decision: Nav/Footer Strategy
 - **Option A:** Use WordPress theme nav/footer (strip ours, push body sections only)
 - **Option B:** Full custom page with blank template (push everything including our nav/footer)
-- Needs MaDonna input
+- **RESOLVED:** Option B chosen — `elementor_canvas` template, full custom page with our nav/footer
+
+### 2026-04-01 — WordPress Deployment LIVE
+- Deployed new homepage to WordPress via REST API — **page 40991 is now the live homepage**
+- Old homepage (page 39965) preserved at `/brandpoint-jk-draft-6-24/`
+- Spec-driven development: SPEC.md, PLAN.md, TESTS.md created, quality-reviewed (3 agents), 55/55 checks passed
+- Key fixes during deployment: `<!-- wp:html -->` block to prevent wpautop CSS corruption, `!important` overrides for Elementor Kit global typography
+- Added GA4 event tracking: `cta_click`, `section_view`, `nav_click` via gtag() + dataLayer
+- Added JSON-LD Organization structured data
+- Rollback: `PUT /settings {"show_on_front":"page","page_on_front":39965}`

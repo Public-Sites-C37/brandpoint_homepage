@@ -117,28 +117,35 @@ ul {
 }
 
 .bp-landing-h1 {
-  font-size: 2.625rem;
-  font-weight: 800;
+  font-family: var(--bp-font) !important;
+  font-size: 2.625rem !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  color: inherit !important;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-top: 0;
 }
 
 .bp-landing-h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-family: var(--bp-font) !important;
+  font-size: 2.25rem !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
   line-height: 1.2;
   letter-spacing: -0.015em;
-  color: var(--bp-navy);
+  color: var(--bp-navy) !important;
   text-align: center;
   margin-bottom: 16px;
 }
 
 .bp-landing-h3 {
-  font-size: 1.1875rem;
-  font-weight: 700;
+  font-family: var(--bp-font) !important;
+  font-size: 1.1875rem !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
   line-height: 1.35;
-  color: var(--bp-navy);
+  color: var(--bp-navy) !important;
   margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
@@ -1151,11 +1158,13 @@ ul {
 }
 
 .bp-landing-footer-heading {
-  font-size: 0.6875rem;
-  font-weight: 700;
+  font-family: var(--bp-font) !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.4) !important;
   margin-bottom: 16px;
 }
 
