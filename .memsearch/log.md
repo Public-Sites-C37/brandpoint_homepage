@@ -94,3 +94,6 @@ Brandpoint Product Landing Page — static HTML/CSS/JS site for `brandpoint.com/
 - Added GA4 event tracking: `cta_click`, `section_view`, `nav_click` via gtag() + dataLayer
 - Added JSON-LD Organization structured data
 - Rollback: `PUT /settings {"show_on_front":"page","page_on_front":39965}`
+- Created GitHub project "BrandPoint Website" (org project #3) linked to this repo
+- Created 6 completed issues documenting all work: MaDonna feedback, WP API connection, spec docs, deployment, analytics, email to stakeholders
+- Drafted analytics summary email to MaDonna and Stacy requesting GA4 access for advanced features
