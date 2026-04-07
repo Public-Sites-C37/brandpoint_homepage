@@ -97,3 +97,30 @@ Brandpoint Product Landing Page — static HTML/CSS/JS site for `brandpoint.com/
 - Created GitHub project "BrandPoint Website" (org project #3) linked to this repo
 - Created 6 completed issues documenting all work: MaDonna feedback, WP API connection, spec docs, deployment, analytics, email to stakeholders
 - Drafted analytics summary email to MaDonna and Stacy requesting GA4 access for advanced features
+
+### 2026-04-06 — MaDonna Copy Edits Round 3 + New Hero Map (LIVE)
+Implemented MaDonna's 4/2 email (`/home/jaket/Downloads/Madonna_homepage_edits.pdf`) — 5 copy edits and a hero distribution map replacement, all deployed live to page 40991 in a single session.
+
+**5 copy edits** (applied to local `index.html` and patched into WP page 40991 via REST API):
+1. `#value-prop` — "The result =" → "The result is"
+2. Optimize package card — "insights &amp; recommendations" → "insights and recommendations"
+3. Agency Leader quote — `&lsquo;what&rsquo;s the ROI?` → `&lsquo;What&rsquo;s the ROI?` (capital W)
+4. Digital Strategy Leader quote — "agency what to do next" → "agency on what to do next"
+5. Case study — "over 1000 placements" → "over 1,000 placements"
+
+**Hero map replacement** — `assets/images/distribution-map.png` (339369 → 340391 bytes). New image (1877×1010) shows premium-outlet highlight halos for LA Times, Chicago Tribune, NY Daily News, Miami area, plus AP legend marker. Procedure: `DELETE /media/40957?force=true` → `POST /media` with same `Content-Disposition` filename → new media id 40993 reclaimed the same `source_url` slot (`/wp-content/uploads/2026/04/distribution-map.png`), so the page src needed no update.
+
+**Verification:** all 5 edits confirmed in WP raw content (`context=edit`), all 5 confirmed in live `https://www.brandpoint.com/` HTML, image fetch returned `200` with `content-length: 340391` (byte-exact match to local), Cloudflare flipped to `cf-cache-status: MISS`. Page modified `2026-04-06T20:21:01`.
+
+**Commit:** `60f99f9 Apply MaDonna copy edits round 3 + new hero distribution map` — pushed to both `Brandpoint-C37/home_page` and `Public-Sites-C37/brandpoint_homepage` via origin's dual push URLs.
+
+**Key learnings:**
+- Media replace via REST API: `DELETE force=true` + `POST` with same filename reclaims the same URL when no other file collides in the year/month upload folder. WP auto-regenerates all sized variants.
+- WP entity round-trip is faithful — `&lsquo;`/`&rsquo;`/`&ldquo;`/`&rdquo;`/`&amp;` come back identically from `context=edit`, so plain Python `str.replace()` on entity-encoded forms is reliable.
+- Re-saving page via REST API IS the cache-bust mechanism — no separate Cloudflare API call needed.
+- MaDonna asked if she could make text edits herself in wp-admin: yes, but ONLY in the **Code editor** view (Visual will mangle the inline `<style>` block via `wpautop`), and only words between tags — never `class=`, `<style>`, `<script>`, or `<!-- wp:html -->` wrappers.
+
+**Open items carried forward:**
+- OI-05: Yoast SEO title/description/OG image (still must be set manually in wp-admin)
+- MaDonna training on wp-admin Code editor for future copy edits
+- Untracked `Updates from Brandpoint/` assets (PR agency logos zip, outlet logos zip, etc.) — decide commit-vs-gitignore
