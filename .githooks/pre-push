@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# pre-push hook — block pushing committed credentials to public mirrors.
+#
+# This hook fires for every `git push`. It blocks the push if BOTH:
+#   1. The push target URL contains "Public-Sites" (case-insensitive), AND
+#   2. Any commit being pushed contains .wp-credentials.env in its tree
+#
+# Activation: this hook lives in .githooks/ which is committed to the repo.
+# Each clone must opt in once with:
+#     git config core.hooksPath .githooks
+# CROSS-MACHINE-SETUP.md documents this step.
+#
+# To bypass for an emergency (DON'T): git push --no-verify
+
+set -euo pipefail
+
+remote_name="${1:-}"
+remote_url="${2:-}"
+
+# Refuse to run if invoked without arguments (shouldn't happen via git)
+if [[ -z "$remote_url" ]]; then
+    echo "pre-push: missing remote URL argument" >&2
+    exit 1
+fi
+
+# Case-insensitive match for "Public-Sites" in the destination URL.
+if echo "$remote_url" | grep -qi "public-sites"; then
+    # Read the list of refs being pushed from stdin.
+    # Format per line: <local-ref> <local-sha> <remote-ref> <remote-sha>
+    while read -r local_ref local_sha remote_ref remote_sha; do
+        # Skip deletions (local_sha = 0000...)
+        if [[ "$local_sha" =~ ^0+$ ]]; then
+            continue
+        fi
+        # Check whether .wp-credentials.env exists in the tree at local_sha.
+        if git ls-tree -r --name-only "$local_sha" 2>/dev/null | grep -qx '.wp-credentials.env'; then
+            cat >&2 <<EOF
+================================================================================
+PUSH BLOCKED — credentials would leak to a public repo
+
+Target remote URL: $remote_url
+Local ref:         $local_ref ($local_sha)
+
+The commit you are trying to push contains '.wp-credentials.env', which is
+the WordPress Application Password for jtrippel on brandpoint.com. The
+target URL matches "Public-Sites" — this is a public GitHub repository.
+
+Pushing would expose the credential to the entire internet.
+
+If you intend to update the public mirror, you must FIRST remove the
+credentials file from the commit history of the branch you are pushing
+(e.g. via git filter-repo or by maintaining a separate public branch).
+
+To intentionally bypass this hook (NOT RECOMMENDED), use:
+    git push --no-verify
+
+================================================================================
+EOF
+            exit 1
+        fi
+    done
+fi
+
+exit 0

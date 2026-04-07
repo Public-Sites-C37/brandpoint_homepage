@@ -1,1 +1,22 @@
-.wp-credentials.env
+# --- Secrets ---
+# .wp-credentials.env IS committed (private GH Enterprise repo only).
+# Pre-push hook in .githooks/pre-push blocks pushing to any "Public-Sites" URL
+# while credentials are present. Run: git config core.hooksPath .githooks
+# on each clone to activate the hook.
+
+# --- Local tool state (not portable across machines) ---
+.claude/
+.playwright-mcp/
+.superpowers/
+
+# --- macOS junk (from zips MaDonna sends) ---
+.DS_Store
+__MACOSX/
+._*
+
+# --- Editor backups / swap files ---
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
